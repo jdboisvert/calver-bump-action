@@ -1,16 +1,11 @@
 #!/bin/sh -l
 cd $GITHUB_WORKSPACE
 
-git checkout -b temp_bump_version
+git config --global user.name "CalVer Version Bump Bot"
+git config --global user.email "actions@github.com"
+git config --global --add safe.directory /github/workspace
 
-bumpver update
-
-# Commit changes
-git config user.name "${INPUT_GIT_USERNAME}"
-git config user.email "${INPUT_GIT_EMAIL}"
-
-git add .
-git commit -m "${INPUT_COMMIT_MESSAGE}"
+git checkout -b temp_bump_version  # Create a temp branch for version bump for safety
 
 # Get today's tag prefix and existing tags for today
 TODAYS_TAG_PREFIX=$(date +"%y.%-m.%-d")
@@ -31,10 +26,14 @@ if git rev-parse $NEW_TAG >/dev/null 2>&1; then
     exit 0
 fi
 
+# Update or create the VERSION file with the new tag number
+echo $NEW_TAG > VERSION
+
+git add VERSION
+git commit -m "Bump version to $NEW_TAG"
+
+git status
+
 # Create new tag and push commit and tag
 git tag $NEW_TAG
 git push origin $NEW_TAG
-
-# Clean up temp branch made for version bump and checkout main
-git checkout main
-git branch -D temp_bump_version

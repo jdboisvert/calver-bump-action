@@ -1,8 +1,10 @@
-FROM python:3.11-slim
+# Use a lightweight base image like alpine
+FROM alpine:latest
 
-RUN pip install bumpver==2023.1126
+RUN apk add --no-cache git
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
+
