@@ -9,7 +9,7 @@ bumpver update
 git config user.name "${INPUT_GIT_USERNAME}"
 git config user.email "${INPUT_GIT_EMAIL}"
 
-git add "${INPUT_BUMPVER_CONFIG_PATH}"
+git add .
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 
 # Get today's tag prefix and existing tags for today

@@ -19,5 +19,4 @@ Include the following in your workflow file to run the action.
 | --- | --- | --- | --- |
 | git-username | The username to use when committing the bumpver update | false | CalVer Auto Bump Bot |
 | git-email | The email to use when committing the bumpver update | false | actions@github.com |
-| bumpver-config-path | The path to the bumpver config file | false | .bumpver.cfg |
 | commit-message | The commit message to use when committing the bumpver update | false | Auto bump version |

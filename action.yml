@@ -11,11 +11,6 @@ inputs:
     required: false
     default: 'actions@github.com'
     
-  bumpver-config-path:
-    description: 'Path to the bumpver configuration'
-    required: false
-    default: '.bumpver.cfg'
-    
   commit-message:
     description: 'Message for the commit'
     required: false
