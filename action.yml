@@ -1,0 +1,27 @@
+name: 'CalVer Bump Action'
+description: 'A GitHub Action used to help automate running bumpver update on a project for you following the CalVer versioning convention.'
+inputs:
+  git-username:
+    description: 'Username for git commit'
+    required: false
+    default: 'CalVer Auto Bump Bot'
+  
+  git-email:
+    description: 'Email for git commit'
+    required: false
+    default: 'actions@github.com'
+    
+  bumpver-config-path:
+    description: 'Path to the bumpver configuration'
+    required: false
+    default: '.bumpver.cfg'
+    
+  commit-message:
+    description: 'Message for the commit'
+    required: false
+    default: 'Auto bump version'
+  
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
