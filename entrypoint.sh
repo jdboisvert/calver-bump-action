@@ -13,11 +13,11 @@ TODAYS_TAGS=$(git tag | grep ^$TODAYS_TAG_PREFIX)
 
 # Logic to determine new tag
 if [ -z "$TODAYS_TAGS" ]; then
-    NEW_TAG="$TODAYS_TAG_PREFIX.0"
+    NEW_TAG="v$TODAYS_TAG_PREFIX.0"
 else
     LATEST_INC=$(echo "$TODAYS_TAGS" | sort -t. -k4,4n | tail -n1 | cut -d'.' -f4)
     NEW_INC=$((LATEST_INC + 1))
-    NEW_TAG="$TODAYS_TAG_PREFIX.$NEW_INC"
+    NEW_TAG="v$TODAYS_TAG_PREFIX.$NEW_INC"
 fi
 
 # Check if tag is already exisrs and exit if so 
