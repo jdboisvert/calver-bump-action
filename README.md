@@ -37,7 +37,7 @@ jobs:
         fetch-depth: 0
 
     - name: Bump Version
-      uses: ./.github/actions/calver-bump-action
+      uses: jdboisvert/calver-bump-action@v1.0.0
 ```
 
 ## Features and Notes
