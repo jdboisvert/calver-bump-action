@@ -1,5 +1,7 @@
 name: 'CalVer Bump Action'
 description: 'A GitHub Action used to help automate versioning for a project following the CalVer versioning convention.'
+icon: 'tag'
+color: 'blue'
 
 runs:
   using: 'docker'
